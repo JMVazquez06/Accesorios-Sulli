@@ -1,7 +1,7 @@
 {
-  "name": "sistema-calificaciones-universitarias",
+  "name": "accesorios-sulli",
   "version": "1.0.0",
-  "description": "API REST para sistema de calificaciones universitarias",
+  "description": "API REST para accesorios sulli",
   "main": "app.js",
   "scripts": {
     "start": "node app.js",

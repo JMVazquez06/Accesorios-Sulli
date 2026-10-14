@@ -20,6 +20,8 @@ app.use((req, res, next) => {
   next();
 });
 
+app.use(express.static(__dirname));
+
 app.get('/prueba', (req, res) => {
   res.send('Esto es una ruta de prueba, puedo definir una ruta o algo aquí');
 });

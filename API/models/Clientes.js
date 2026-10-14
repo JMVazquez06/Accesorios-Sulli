@@ -1,10 +1,10 @@
 
 const db = require('../config/db');
 /*  Pueden usarlo así, pero no es necesario y exportar los métodos con exports 
-//module .exports = Materia;
-const Materia = {
+//module .exports = Cliente;
+const Cliente = {
   getAll: (callback) => {
-    const query = 'SELECT * FROM calificaiones';
+    const query = 'SELECT * FROM clientes';
     db.query(query, (err, results) => {
       if (err) {
         return callback(err);
@@ -17,21 +17,21 @@ const Materia = {
 
 // Obtener todos los clientes
 exports.getAllClients = (callback) => {
-    const query = 'SELECT id, nombre, dependencia, celular FROM clientes';
+    const query = 'SELECT * FROM clientes';
     db.query(query, callback);
 };
 
 // Agregar un nuevo cliente
 exports.addClient = (clientData, callback) => {
-    const query = 'INSERT INTO clientes (nombre, dependencia, celular) VALUES (?, ?, ?)';
-    db.query(query, [clientData.nombre, clientData.dependencia, clientData.celular], callback);
+    const query = 'INSERT INTO clientes (nombre, dependencia, celular, deuda) VALUES (?, ?, ?, ?)';
+    db.query(query, [clientData.nombre, clientData.dependencia, clientData.celular, clientData.deuda], callback);
 
 };
 
 // Modificar un cliente existente
 exports.updateClient = (id, clientData, callback) => {
-    const query = 'UPDATE clientes SET nombre = ?, dependencia = ? celular = ? WHERE id = ?';
-    db.query(query, [clientData.nombre, clientData.dependencia, clientData.celular, id], callback);
+    const query = 'UPDATE clientes SET nombre = ?, dependencia = ?, celular = ?, deuda = ? WHERE id = ?';
+    db.query(query, [clientData.nombre, clientData.dependencia, clientData.celular, clientData.deuda, id], callback);
 };
 
 
@@ -41,4 +41,4 @@ exports.deleteClient = (id, callback) => {
     db.query(query, [id], callback);
 };
 
-/*module.exports = Calificacion;*/
+/*module.exports = Cliente;*/
